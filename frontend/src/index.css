@@ -1,0 +1,357 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Inter, system-ui, sans-serif;
+    background: #0d1117;
+    color: #e6edf3;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.45;
+}
+
+.app {
+    min-height: 100vh;
+    padding: 32px;
+}
+
+
+.header {
+    max-width: 1200px;
+    margin: 0 auto 28px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.header p {
+    margin: 6px 0 0;
+    color: #8b949e;
+}
+
+/* Status */
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 8px 14px;
+
+    border: 1px solid #30363d;
+    border-radius: 20px;
+
+    color: #8b949e;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.status.live {
+    color: #3fb950;
+    border-color: #238636;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+    background: #8b949e;
+}
+
+.status.live .status-dot {
+    background: #3fb950;
+    box-shadow: 0 0 8px #3fb950;
+}
+
+/* Main */
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Control panel */
+
+.control-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 20px;
+
+    padding: 20px;
+
+    background: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    flex: 1;
+}
+
+.input-group label,
+.toolbar label {
+    color: #8b949e;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+input,
+select {
+    background: #0d1117;
+    color: #e6edf3;
+
+    border: 1px solid #30363d;
+    border-radius: 6px;
+
+    padding: 10px 12px;
+
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border-color: #58a6ff;
+}
+
+/* Buttons */
+
+.controls {
+    display: flex;
+    gap: 10px;
+}
+
+.controls button,
+.download-button {
+    border: none;
+    border-radius: 6px;
+
+    padding: 10px 16px;
+
+    font-weight: 600;
+}
+
+.start-button {
+    background: #238636;
+    color: white;
+}
+
+.start-button:hover:not(:disabled) {
+    background: #2ea043;
+}
+
+.stop-button {
+    background: #da3633;
+    color: white;
+}
+
+.stop-button:hover:not(:disabled) {
+    background: #f85149;
+}
+
+/* Toolbar */
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    margin-top: 16px;
+    margin-bottom: 12px;
+}
+
+.toolbar > div:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.download-button {
+    background: #21262d;
+    color: #e6edf3;
+
+    border: 1px solid #30363d;
+}
+
+.download-button:hover {
+    background: #30363d;
+}
+
+/* Terminal */
+
+.terminal-container {
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    overflow: hidden;
+
+    background: #000;
+}
+
+.terminal-header {
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 14px;
+
+    background: #161b22;
+    border-bottom: 1px solid #30363d;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.terminal-buttons span {
+    width: 10px;
+    height: 10px;
+
+    border-radius: 50%;
+    background: #484f58;
+}
+
+.terminal-title {
+    flex: 1;
+    text-align: center;
+
+    color: #8b949e;
+    font-size: 12px;
+    font-family: monospace;
+}
+
+.log-count {
+    color: #8b949e;
+    font-size: 12px;
+}
+
+/* Terminal content */
+
+.terminal {
+    height: 600px;
+
+    padding: 18px;
+
+    overflow-y: auto;
+
+    background: #000;
+
+    font-family:
+        "Cascadia Code",
+        "Fira Code",
+        Consolas,
+        monospace;
+
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.empty-terminal {
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: #484f58;
+}
+
+/* Log lines */
+
+.log-line {
+    display: flex;
+    gap: 10px;
+
+    white-space: pre-wrap;
+}
+
+.level {
+    font-weight: 700;
+}
+
+.info .level {
+    color: #58a6ff;
+}
+
+.warn .level {
+    color: #d29922;
+}
+
+.error .level {
+    color: #f85149;
+}
+
+.timestamp {
+    color: #8b949e;
+}
+
+.message {
+    color: #c9d1d9;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+
+    .app {
+        padding: 16px;
+    }
+
+    .header {
+        align-items: flex-start;
+    }
+
+    .control-panel {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .controls {
+        flex-direction: column;
+    }
+
+    .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+
+    .download-button {
+        width: 100%;
+    }
+
+    .terminal {
+        height: 500px;
+        font-size: 12px;
+    }
+
+    .log-line {
+        display: block;
+    }
+}
